@@ -1,5 +1,9 @@
 # Repository Guidelines
 
+## Agent-Specific Instructions
+
+Use English to think, and answer in Japanese.
+
 ## Project Structure & Module Organization
 
 - アプリ本体は `src/` 配下です。`src/routes/` がファイルベースルーティング、`src/components/` が再利用コンポーネント、`src/styles.css` がグローバルスタイルです。
@@ -31,7 +35,3 @@
 - 現状コミット履歴は未整備のため、`feat:`, `fix:`, `chore:` などの Conventional Commits 準拠プレフィックスを推奨。
 - PR では変更概要、検証手順（例: `pnpm build`, `pnpm test`）、関連 Issue のリンクを必ず記載。UI 変更時はスクリーンショットを添付してください。
 - 大きな変更は分割コミットを徹底し、レビュアーが追いやすい差分を心掛けましょう。
-
-## Agent-Specific Instructions
-
-Use English to think, and answer in Japanese.

@@ -2,11 +2,11 @@ import { createFileRoute, Navigate } from '@tanstack/react-router'
 import TaskList from '../components/TaskList'
 import { useAuthStore } from '../stores/authStore'
 
-export const Route = createFileRoute('/')({
-  component: HomePage,
+export const Route = createFileRoute('/tasks')({
+  component: TasksPage,
 })
 
-function HomePage() {
+function TasksPage() {
   const { isAuthenticated } = useAuthStore()
 
   // Redirect to login if not authenticated

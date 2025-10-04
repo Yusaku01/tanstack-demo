@@ -1,7 +1,21 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "tanstack-demo-app",
+  "name": "my-task",
   "main": "@tanstack/react-start/server-entry",
   "compatibility_date": "2025-10-01",
-  "compatibility_flags": ["nodejs_compat"]
+  "compatibility_flags": ["nodejs_compat"],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "my-task-db",
+      "database_id": "5ca4e1c3-7c3c-4e0a-85d0-eafb96d62ba2"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "KV",
+      "id": "351a06efcc33473b800c71a1a76bb60b",
+      "preview_id": "351a06efcc33473b800c71a1a76bb60b"
+    }
+  ]
 }

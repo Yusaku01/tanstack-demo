@@ -1,26 +1,35 @@
 export {};
 
+// Cloudflare Workers types
+interface D1Database {
+  prepare(statement: string): D1PreparedStatement;
+}
+
+interface D1PreparedStatement {
+  bind(...values: any[]): D1PreparedStatement;
+  first<T = any>(): Promise<T | null>;
+  all<T = any>(): Promise<{ results: T[] }>;
+  run(): Promise<void>;
+}
+
+interface KVNamespace {
+  get(key: string): Promise<string | null>;
+  put(key: string, value: string, options?: { expirationTtl?: number }): Promise<void>;
+  delete(key: string): Promise<void>;
+}
+
 declare global {
   interface Env {
-    // Example KV namespace binding
-    // MY_KV_NAMESPACE: KVNamespace;
+    // D1 database binding
+    DB: D1Database;
 
-    // Example Durable Object binding
-    // MY_DURABLE_OBJECT: DurableObjectNamespace;
+    // KV namespace binding
+    KV: KVNamespace;
 
-    // Example R2 bucket binding
-    // MY_BUCKET: R2Bucket;
+    // JWT secret for authentication
+    JWT_SECRET: string;
 
-    // Example D1 database binding
-    // MY_DATABASE: D1Database;
-
-    // Example Queue binding
-    // MY_QUEUE: Queue;
-
-    // Example Service binding
-    // MY_SERVICE: Fetcher;
-
-    // Example environment variables
-    // MY_VARIABLE: string;
+    // Environment setting
+    ENVIRONMENT?: string;
   }
 }
